@@ -1,0 +1,367 @@
+/*
+-------------------------------------------------------------------------
+* Name             : PORTFOLIO                                          * 
+* Author           : OffBlack                                           *
+* Created          : January 2019                                       * 
+* File Description : Main Css file of the template                      *
+*------------------------------------------------------------------------
+*/
+/***********************
+    1. BASIC           *
+    2. ANIMATIONS      *
+    3. NAVBAR          *
+    4. MEDIA           *
+    5. HOME            *
+    6. PROJECTS        *
+    7. ABOUT           *
+    8. CONTACT         *
+    9. FOOTER          *
+************************/
+body {
+  font-family: "Quicksand", sans-serif;
+  margin: 0;
+  padding: 0; }
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-weight: 400; }
+
+h1 {
+  font-family: 'Lato', sans-serif;
+  font-weight: 700; }
+
+p {
+  font-size: 8px !important;
+  line-height: 1.6; }
+
+a,
+a:hover,
+a:focus,
+button,
+button:focus {
+  text-decoration: none !important;
+  outline: none !important;
+  -webkit-box-shadow: none !important;
+  box-shadow: none !important; }
+
+.no-padding {
+  padding: 0 !important;
+  margin: 0 !important; }
+
+@media (min-width: 768px) {
+  .row.equal {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-wrap: wrap;
+    flex-wrap: wrap; } }
+
+.technologies {
+  color: #ff002b; }
+
+@keyframes flickerAnimation {
+  0% {
+    opacity: 1; }
+  50% {
+    opacity: 0; }
+  100% {
+    opacity: 1; } }
+
+@-webkit-keyframes flickerAnimation {
+  0% {
+    opacity: 1; }
+  50% {
+    opacity: 0; }
+  100% {
+    opacity: 1; } }
+
+@keyframes bounceAnimation {
+  0% {
+    -webkit-transform: rotate(2deg);
+    -ms-transform: rotate(2deg);
+    transform: rotate(2deg); }
+  50% {
+    -webkit-transform: rotate(-2deg);
+    -ms-transform: rotate(-2deg);
+    transform: rotate(-2deg); }
+  100% {
+    -webkit-transform: rotate(2deg);
+    -ms-transform: rotate(2deg);
+    transform: rotate(2deg); } }
+
+@-webkit-keyframes bounceAnimation {
+  0% {
+    -webkit-transform: rotate(2deg);
+    transform: rotate(2deg); }
+  50% {
+    -webkit-transform: rotate(-2deg);
+    transform: rotate(-2deg); }
+  100% {
+    -webkit-transform: rotate(2deg);
+    transform: rotate(2deg); } }
+
+.custom-nav {
+  font-family: "Quicksand", sans-serif;
+  padding: 22px 0px;
+  width: 100%;
+  border-radius: 0px;
+  z-index: 999;
+  margin-bottom: 0px;
+  -webkit-transition: all 0.5s ease-in-out;
+  -o-transition: all 0.5s ease-in-out;
+  transition: all 0.5s ease-in-out;
+  background-color: transparent;
+  position: fixed;
+  z-index: 9999; }
+  .custom-nav a {
+    color: #fff !important;
+    font-weight: 500;
+    padding: 10px;
+    background: #ff002b; }
+  .custom-nav .navbar-nav a {
+    border: none;
+    color: #bfbfbf !important;
+    font-weight: 400;
+    font-size: 14px;
+    background-color: transparent !important;
+    padding: 7px 0 !important;
+    position: relative;
+    margin: 0 12px;
+    -webkit-transition: all 0.4s;
+    -o-transition: all 0.4s;
+    transition: all 0.4s; }
+    .custom-nav .navbar-nav a:hover {
+      color: #fff !important; }
+  .custom-nav .navbar-nav .nav-item .active a {
+    color: #fff !important; }
+
+.custom-nav-down {
+  background-color: #030618 !important; }
+
+@media (max-width: 992px) {
+  .navbar-brand {
+    margin-left: auto !important;
+    margin-right: auto !important;
+    margin-bottom: 15px; }
+  nav {
+    position: static !important; }
+  .home-bg {
+    height: 80vh !important; }
+  .typing-start {
+    text-align: center !important;
+    vertical-align: baseline !important;
+    padding-top: 10px !important; }
+    .typing-start h1 {
+      font-size: 34px !important; }
+      .typing-start h1::after {
+        height: 40px !important; }
+    .typing-start .astronaut {
+      left: 0;
+      right: 0;
+      margin: auto; }
+  .astronaut-adult {
+    display: block !important;
+    position: static !important;
+    margin-top: 35px !important; }
+  .projects {
+    margin-bottom: 0 !important;
+    padding-bottom: 0 !important; }
+  .planet {
+    display: block !important;
+    position: static !important;
+    margin-bottom: 0 !important; }
+  .about {
+    padding-top: 0 !important; }
+  .ufo {
+    display: block !important;
+    position: static !important;
+    margin-bottom: 0 !important; }
+  .skills {
+    padding-bottom: 0 !important;
+    margin-bottom: 0 !important; }
+  .contact {
+    padding-top: 0 !important; }
+  .author-site {
+    text-align: center !important;
+    padding: 20px !important; } }
+
+.home-bg {
+  background: url(img/space.png);
+  background-position: center;
+  width: 100%;
+  height: 100vh;
+  position: relative;
+  display: table;
+  overflow: hidden; }
+  .home-bg .typing-start {
+    display: table-cell;
+    text-align: center;
+    vertical-align: middle;
+    color: #fff; }
+    .home-bg .typing-start h1 {
+      font-size: 62px;
+      display: inline-block;
+      padding: 15px 30px;
+      background: #ff002b !important; }
+    .home-bg .typing-start .astronaut {
+      width: 200px;
+      position: absolute;
+      right: 15px;
+      bottom: 0;
+      -webkit-animation: bounceAnimation 5s infinite;
+      animation: bounceAnimation 5s infinite; }
+
+.section-header h1 {
+  font-size: 46px;
+  padding-top: 15px; }
+
+.section-header p {
+  max-width: 500px;
+  font-size: 21px !important; }
+
+.section-header .tip-trick {
+  color: #ff002b !important;
+  font-weight: bold;
+  opacity: 0.6 !important;
+  margin-bottom: 0 !important;
+  padding-bottom: 8px; }
+
+.section-header .one-tip {
+  position: relative; }
+  .section-header .one-tip img {
+    width: 40px; }
+
+.section-header .add-projects {
+  max-width: 800px; }
+
+.projects {
+  position: relative; }
+  .projects .astronaut-adult {
+    position: absolute;
+    left: 35px;
+    top: 10px;
+    -webkit-animation: bounceAnimation 5s infinite;
+    animation: bounceAnimation 5s infinite; }
+    .projects .astronaut-adult img {
+      width: 200px; }
+  .projects .one-project .card {
+    position: relative;
+    border-top-left-radius: 0%;
+    border-top-right-radius: 0%;
+    -webkit-box-sizing: content-box !important;
+    box-sizing: content-box !important; }
+  .projects .one-project .card-img-top {
+    border-top-left-radius: 0%;
+    border-top-right-radius: 0%; }
+  .projects .one-project a {
+    color: #ff002b; }
+  .projects .one-project h2 {
+    font-weight: bold;
+    font-family: 'Lato', sans-serif; }
+  .projects .one-project p {
+    font-size: 18px !important; }
+  .projects .one-project .card-text a {
+    color: #ff002b;
+    -webkit-transition: all 0.3s easy-in-out;
+    -o-transition: all 0.3s easy-in-out;
+    transition: all 0.3s easy-in-out; }
+    .projects .one-project .card-text a:hover {
+      color: #b3001e; }
+  .projects .one-project .btn-custom {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    margin: auto;
+    padding: 5px;
+    color: #fff;
+    background-color: #ff002b;
+    font-size: 24px;
+    -webkit-transition: all 0.2s ease-in-out;
+    -o-transition: all 0.2s ease-in-out;
+    transition: all 0.2s ease-in-out;
+    font-weight: bold;
+    font-family: 'Lato', sans-serif; }
+    .projects .one-project .btn-custom:hover {
+      font-size: 26px; }
+  .projects .planet {
+    position: absolute;
+    right: 15px;
+    bottom: -200px;
+    padding-bottom: 80px;
+    -webkit-animation: bounceAnimation 5s infinite;
+    animation: bounceAnimation 5s infinite; }
+    .projects .planet img {
+      width: 200px; }
+
+.about {
+  background: url(img/round.png); }
+  .about .one-desc p {
+    padding: 0 !important;
+    margin: 0 !important;
+    font-size: 21px !important; }
+
+.skills {
+  position: relative;
+  text-align: center; }
+  .skills .one-skill h2 {
+    font-weight: bold;
+    font-size: 18px; }
+  .skills .ufo {
+    position: absolute;
+    left: 55px;
+    bottom: -300px;
+    padding-bottom: 80px;
+    -webkit-animation: bounceAnimation 5s infinite;
+    animation: bounceAnimation 5s infinite; }
+    .skills .ufo img {
+      width: 300px !important; }
+
+.contact {
+  background: url(img/round.png); }
+  .contact .one-contact {
+    font-size: 85px; }
+    .contact .one-contact a {
+      color: #000;
+      -webkit-transition: all 0.2s ease-in-out;
+      -o-transition: all 0.2s ease-in-out;
+      transition: all 0.2s ease-in-out; }
+      .contact .one-contact a:hover {
+        color: #ff002b; }
+
+.back-top {
+  color: #fff;
+  text-align: center;
+  position: fixed;
+  bottom: 35px;
+  right: 20px;
+  height: 35px;
+  width: 35px;
+  background-color: #ff002b;
+  display: none;
+  z-index: 10000;
+  border-radius: 3px;
+  line-height: 2;
+  -webkit-transition: all 0.5s ease-in-out;
+  -o-transition: all 0.5s ease-in-out;
+  transition: all 0.5s ease-in-out; }
+
+.back-top:hover {
+  color: #fff; }
+
+.back-top i {
+  font-size: 21px;
+  padding-top: 5px; }
+
+.author-site {
+  background-color: #000;
+  color: #fff;
+  font-size: 24px !important;
+  text-align: right;
+  width: 100%;
+  margin: 0;
+  padding: 30px 80px; }

@@ -1,0 +1,58 @@
+Micha³ Opa³ka     Projekty | O mnie | Technologie | Kontakt
+
+Poznaj mnie!
+
+SprawdŸ moje projekty!
+
+Moje projekty
+
+- Strona England Guide HTML
+stworzenie layoutu strony w Adobe Photoshop, realizacja strony w HTML, CSS, JS, JQUERY, BOOTSTRAP
+
+- Strona Creezy
+stworzenie strony w opaciu o layout themeforest.com, odwzorowanie semantyczne oraz graficzne. Realizacja strony w HTML, CSS (SCSS), JS, JQUERY, BOOTSTRAP
+
+- STRONA CONSTANT.UK
+odœwie¿enie layoutu oraz wygl¹du strony na WORDPRESS (wspó³praca komercyjna). Stworzenie grafik potrzebnych na stronê, realizacja strony.
+
+- GRA PING PONG
+prosta gra stworzona w oparciu o klasyczny Javascript.
+
+- GRA W PAMIÊÆ
+gra w pamiêæ stworzona przy pomocy Javascript oraz JQuery.
+
+- SZUBIENICA
+gra stworzona przy pomocy Javascript oraz JQuery.
+
+Technologie i umiejêtnoœci
+
+HTML 5
+
+CSS 3
+SASS, BOOTSTRAP
+
+JavaScript
+ES6, jQuery
+
+Adobe Photoshop
+Tworzenie, obróbka grafiki. Tworzenie layoutów stron internetowych.
+
+Adobe Illustrator
+Tworzenie, obróbka ilustracji, grafik oraz ikon.
+
+O mnie
+
+Czeœæ! Jestem Micha³!
+
+Mam 20 lat i obecnie studiujê informatykê (zaocznie). Swoj¹ przygodê z programowaniem zacz¹³em jakiœ rok temu, od pierwszych poradników dotycz¹cych prostych stron, zrozumienie logiki programowania przysz³o póŸniej - wraz z jêzykiem C++, jednak to JavaScript oraz technologie webowe interesuj¹ mnie najbardziej!
+
+Poza programowaniem, lubiê zdjêcia i grafikê - w tym drugim mam nieco umiejêtnoœci oraz doœwiadczenia komercyjnego, co przek³ada siê na wra¿liwoœæ estetyczn¹ podczas tworzenia przeze mnie stron.
+
+Obecnie oprócz nauki poszukujê pracy w bran¿y IT, aby móc rozwijaæ siê i ci¹glê uczyæ czegoœ nowego!
+
+Kontakt
+
+Facebook
+
+Mail
+

@@ -1,0 +1,367 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <title>Ping Pong</title>
+    <link href="https://fonts.googleapis.com/css?family=Lobster" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Lobster" rel="stylesheet">
+    <style>
+    
+        body
+        {
+            margin: 0;
+            padding: 0;  
+            height: 100vh;
+            background-color: #141414;
+            
+            
+        }
+        
+        #wrapper
+        {
+            
+            display: flex;
+            margin-top: 5vh;
+            justify-content: center;
+            
+   
+        }
+        
+        h1
+        {
+            text-align: center;
+            margin-top: 3vh;
+            font-size: 56px;
+            font-family: 'Lobster', cursive;
+            color: #ff0022;
+            letter-spacing: 5px;
+            text-shadow: 3px 3px 8px rgba(0, 0, 0, 0.75);
+        }
+
+        h2
+        {
+            text-align: center;
+            margin-top: 3vh;
+            font-size: 42px;
+            font-family: 'Lobster', cursive;
+            color: #ff0022;
+            letter-spacing: 5px;
+            text-shadow: 3px 3px 8px rgba(0, 0, 0, 0.75);
+        }
+        
+        canvas
+        {
+            border: 5px solid #ff0022;
+            border-radius: 2px;
+            -webkit-box-shadow: 10px 10px 5px 0px rgba(0,0,0,0.40);
+            -moz-box-shadow: 10px 10px 5px 0px rgba(0,0,0,0.40);
+            box-shadow: 10px 10px 5px 0px rgba(0,0,0,0.40);
+        }
+    
+    </style>
+</head>
+<body>
+    <h1>Ping Pong</h1>
+    
+    <div id="wrapper">
+    <canvas></canvas>
+    </div> 
+    
+    <h2 id="score">0:0</h2>
+    
+    <script>
+        
+//----------------- | Canvas | -------------------------------------------
+        
+        
+        const canvas = document.querySelector('canvas');
+        const ctx = canvas.getContext('2d');
+        
+        canvas.width = 1000;
+        canvas.height = 500;
+        
+        const cw = canvas.width;
+        const ch = canvas.height;
+        
+        
+//----------------- | Ball | -------------------------------------------
+        
+        const ballSize = 20;
+        
+        let ballX = cw/2 - ballSize/2;
+        let ballY = ch/2 - ballSize/2;
+        
+        let ballSpeedX = -2;
+        let ballSpeedY = 2;
+        
+        
+//----------------- | MiddleLine | ------------------------------------------- 
+        
+        
+        const lineWidth = 5;
+        const lineHeight = 10;
+        
+        let lineX = cw/2 - lineWidth/2;
+        
+        
+//----------------- | Paddles | -------------------------------------------
+        
+        
+        let playerPaddleX = 70;
+        let playerPaddleY = 200;
+        
+        let robotPaddleX = 910;
+        let robotPaddleY = 200;        
+        
+        const PaddleW = 20;
+        const PaddleH = 100;
+        
+//----------------- | Points | ------------------------------------------- 
+            
+        let playerPoints = 0;
+        let robotPoints = 0;
+        
+
+        function drawBall()
+        {
+            ctx.fillStyle = '#fff';
+            ctx.fillRect(ballX, ballY, ballSize, ballSize);
+            
+            ballX += ballSpeedX;
+            ballY += ballSpeedY;
+
+
+//----------------- | Ball Bounce | -------------------------------------------            
+            
+            
+        if (ballY <= 0 || ballY + ballSize >= ch)
+        {
+            ballSpeedY = -ballSpeedY;
+            speedUp();
+        }
+        }
+
+        
+        function drawPlayerPaddle()
+        {
+            ctx.fillStyle = '#fff';
+            ctx.fillRect(playerPaddleX, playerPaddleY, PaddleW, PaddleH); 
+        }
+        
+        function drawRobotPaddle()
+        {
+            ctx.fillStyle = '#fff';
+            ctx.fillRect(robotPaddleX, robotPaddleY, PaddleW, PaddleH); 
+        
+        }
+        
+        
+        function drawPool()
+        {
+            ctx.fillStyle = '#000';
+            ctx.fillRect(0, 0, cw, ch);
+                       
+            
+        for(let lineY = 20; lineY < ch; lineY += 30)
+            {
+                ctx.fillStyle = '#777';
+                ctx.fillRect(lineX, lineY, lineWidth, lineHeight);
+            }
+            
+        }
+        
+        
+//----------------- | Following Player Paddle | -------------------------------------------         
+        
+        canvas.addEventListener("mousemove", followPlayer);
+
+        
+        let topCanvas = canvas.offsetTop;
+        
+        function followPlayer(e)
+        {
+            playerPaddleY = e.clientY - topCanvas - PaddleH/2;
+            
+            if(playerPaddleY < 0)
+            {
+                playerPaddleY = 0;    
+            }
+            
+            if(playerPaddleY > ch - PaddleH)
+            {
+                playerPaddleY = ch - PaddleH;    
+            }
+            
+            
+        }
+        
+//----------------- | Following Robot Paddle (AI) | -----------------------------------
+
+        function followRobot()
+        {
+            robotPaddleMid = robotPaddleY + PaddleH/2;
+            ballMid = ballY + ballSize/2;
+            
+            if (ballX > 500)
+            {
+                if(robotPaddleMid - ballMid > 200)
+                {
+                    robotPaddleY -=20;
+                }
+                
+                else if(robotPaddleMid - ballMid > 50)
+                {
+                    robotPaddleY -=10;
+                }
+                
+                else if(robotPaddleMid - ballMid < -200)
+                {
+                    robotPaddleY +=20;
+                }
+                
+                else if(robotPaddleMid - ballMid < -50)
+                {
+                    robotPaddleY +=10;
+                }
+            }
+            
+            else if (ballX <= 500)
+            {
+                if(robotPaddleMid - ballMid > 100)
+                {
+                    robotPaddleY -=3;
+                }
+                
+                else if(robotPaddleMid - ballMid < -100)
+                {
+                    robotPaddleY +=3;
+                }
+
+            }
+            
+               
+        }
+
+        
+//----------------- | Detecting a collision | ------------------------------------------- 
+        
+        
+        function coLission()
+        {
+            
+            
+            if(ballX > playerPaddleX && ballX < (robotPaddleX + PaddleH))
+            {
+                
+            
+            
+            if(ballX < playerPaddleX + PaddleW && ballX)
+            {
+                if(ballY >= playerPaddleY && ballY <= playerPaddleY + PaddleH)
+                {
+                    ballSpeedX = -ballSpeedX;
+
+                        if(ballSpeedX < 16 && ballX > playerPaddleX)
+                        {
+                            ballSpeedX += .4;     
+                        } 
+                    
+                }
+            }
+
+            else if(ballX + ballSize > robotPaddleX)
+            {
+                if(ballY >= robotPaddleY && ballY <= robotPaddleY + PaddleH)
+                {
+                    ballSpeedX = -ballSpeedX;
+                    
+                        if(ballSpeedX > -16 && ballX < robotPaddleX)
+                        {
+                            ballSpeedX -= .4;     
+                        } 
+                    
+                }
+            }
+                
+            }
+
+            
+//----------------- | Score & Restart | ------------------------------------------- 
+            
+            
+        if(ballX + ballSize < 0)
+        {
+            robotPoints++;
+            resetGame();
+            
+        }
+            
+        else if(ballX > cw)
+        {
+            
+            playerPoints++;
+            resetGame();
+            
+        }
+        }
+
+        
+//----------------- | Speeding up a ball | -------------------------------------------          
+        
+        function speedUp()
+        { 
+            
+            if(ballSpeedY > 0 && ballSpeedY < 16)
+            {
+                ballSpeedY += .3;    
+            }
+            else if(ballSpeedY < 0 && ballSpeedY > -16)
+            {
+                ballSpeedY -= .3;    
+            } 
+        } 
+        
+        
+
+
+//----------------- | Refreshing and redrawing canvas (15ms) | -------------------------------------------        
+        
+        function reFresh()
+        {
+            
+        drawPool();
+        drawPlayerPaddle();
+        drawRobotPaddle();
+        followRobot();
+        drawBall();
+        coLission();
+    
+        }
+        
+        setInterval(reFresh, 10);
+
+        
+            
+//----------------- | Restart | ------------------------------------------- 
+            
+        function resetGame()
+        {
+            ballX = cw/2 - ballSize/2;
+            ballY = ch/2 - ballSize/2;
+        
+            ballSpeedX = -2;
+            ballSpeedY = 2;
+             
+            reFresh();
+            
+            document.getElementById("score").innerHTML = playerPoints + ":" + robotPoints;
+            
+        }
+            
+            
+ 
+        
+    
+    </script>
+</body>
+</html>
